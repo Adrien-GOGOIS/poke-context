@@ -10,7 +10,9 @@ function App() {
       <nav style={{ color: "white" }}>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/" style={{ margin: "20px" }}>
+              Home
+            </Link>
             <Link to="/login">Login</Link>
           </li>
         </ul>

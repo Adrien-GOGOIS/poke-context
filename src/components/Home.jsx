@@ -25,13 +25,29 @@ function Home() {
       <button type="submit" onClick={randomNumber}>
         RANDOM
       </button>
+
+      <p>Chargement...</p>
+
       <ul className="pokemon">
         <li id="pokemon">
-          {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+          {pokemon.types === undefined ? (
+            <p>Chargement...</p>
+          ) : (
+            pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
+          )}
+          {/*  */}
         </li>
         <li id="pokemon">{pokemon.weight} cm</li>
         <li id="pokemon">{pokemon.height} kg</li>
-        <li>{pokemon.types[0].type.name}</li>
+        {pokemon.types === undefined ? (
+          <p>Chargement...</p>
+        ) : (
+          <li>
+            {pokemon.types[0].type.name.charAt(0).toUpperCase() +
+              pokemon.types[0].type.name.slice(1)}
+          </li>
+        )}
+        {/*  */}
       </ul>
     </div>
   );
