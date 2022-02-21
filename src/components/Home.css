@@ -8,17 +8,24 @@ button {
   font-size: 16px;
   font-weight: 100;
   letter-spacing: 10px;
-  background: rgb(21, 54, 138);
+  background: rgb(79, 98, 148);
   display: block;
 
   margin-top: 40px;
-  border: 1px solid #333;
 
   text-transform: uppercase;
   padding: 10px 20px;
   border-radius: 4px;
   text-align: center;
   width: 100%;
+}
+
+button:hover {
+  background: rgb(21, 54, 138);
+  transition: 1s all;
+  transform: translateY(4px);
+  border: 1px solid transparent;
+  opacity: 0.8;
 }
 
 body {
@@ -38,6 +45,13 @@ ul.pokemon {
   padding: 20px 0;
 }
 
-li#pokemon {
+li.pokemon {
   margin: 10px;
+}
+
+li.name {
+  font-size: 50px;
+  font-weight: bold;
+  padding: 10px 0;
+  letter-spacing: 5px;
 }
