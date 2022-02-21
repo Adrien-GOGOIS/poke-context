@@ -1,5 +1,7 @@
 import { useForm } from "react-hook-form";
 
+import "./Login.css";
+
 function Login() {
   const {
     register,

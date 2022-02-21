@@ -7,7 +7,7 @@ import Login from "./components/Login";
 function App() {
   return (
     <BrowserRouter>
-      <nav>
+      <nav style={{ color: "white" }}>
         <ul>
           <li>
             <Link to="/">Home</Link>

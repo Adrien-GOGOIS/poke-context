@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import "./Home.css";
+
 function Home() {
   const [pokemon, setPokemon] = useState({});
   const [number, setNumber] = useState(1);
@@ -19,7 +21,9 @@ function Home() {
   return (
     <div>
       <h1>Home</h1>
-      <button onClick={randomNumber}>RANDOM</button>
+      <button type="submit" onClick={randomNumber}>
+        RANDOM
+      </button>
       <ul>
         <li>{pokemon.name}</li>
         <li>{pokemon.weight} cm</li>
