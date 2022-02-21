@@ -3,9 +3,11 @@ import { useEffect, useState } from "react";
 import "./Home.css";
 
 function Home() {
+  // STATE
   const [pokemon, setPokemon] = useState({});
   const [number, setNumber] = useState(1);
 
+  // Component Did Mount + DidUpdate
   useEffect(() => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${number}`)
       .then((res) => res.json())
@@ -15,10 +17,12 @@ function Home() {
       });
   }, [number]);
 
+  // Fonction choix ID Pokemon random
   const randomNumber = () => {
     return setNumber(Math.floor(Math.random() * 100) + 1);
   };
 
+  // RENDER DE HOME
   return (
     <div>
       <h1>Home</h1>
@@ -30,6 +34,7 @@ function Home() {
 
       <ul className="pokemon">
         <li id="pokemon">
+          {/* J'ai du mettre un GUARD ici sinon erreur de chargement de la page en cas de rafraichissement*/}
           {pokemon.types === undefined ? (
             <p>Chargement...</p>
           ) : (
@@ -37,8 +42,11 @@ function Home() {
           )}
           {/*  */}
         </li>
+
         <li id="pokemon">{pokemon.weight} cm</li>
         <li id="pokemon">{pokemon.height} kg</li>
+
+        {/* IDEM que plus haut */}
         {pokemon.types === undefined ? (
           <p>Chargement...</p>
         ) : (

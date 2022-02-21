@@ -3,15 +3,17 @@ import { useForm } from "react-hook-form";
 import "./Login.css";
 
 function Login() {
+  // Librairies react-hook-form
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 
+  // Fonction onSubmit bouton formulaire
   const onSubmit = (data) => console.log("Formulaire soumis", data);
 
+  // RENDER LOGIN
   return (
     <div>
       <h1>Login</h1>
