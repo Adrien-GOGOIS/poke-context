@@ -11,6 +11,7 @@ function Home() {
       .then((res) => res.json())
       .then((res) => {
         setPokemon(res);
+        console.log("TYPE", res.types[0].type.name);
       });
   }, [number]);
 
@@ -24,11 +25,13 @@ function Home() {
       <button type="submit" onClick={randomNumber}>
         RANDOM
       </button>
-      <ul>
-        <li>{pokemon.name}</li>
-        <li>{pokemon.weight} cm</li>
-        <li>{pokemon.height} kg</li>
-        {/* <li>{pokemon.types.type.name}</li> */}
+      <ul className="pokemon">
+        <li id="pokemon">
+          {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+        </li>
+        <li id="pokemon">{pokemon.weight} cm</li>
+        <li id="pokemon">{pokemon.height} kg</li>
+        <li>{pokemon.types[0].type.name}</li>
       </ul>
     </div>
   );

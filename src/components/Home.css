@@ -17,8 +17,26 @@ button {
   text-transform: uppercase;
   padding: 10px 20px;
   border-radius: 4px;
+  text-align: center;
+  width: 100%;
 }
 
-li {
+body {
+  margin: 0 20px;
+}
+
+ul.pokemon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   color: white;
+  font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-size: 20px;
+
+  border: 1px solid white;
+}
+
+li#pokemon {
+  margin: 10px;
 }
