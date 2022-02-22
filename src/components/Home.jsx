@@ -40,7 +40,7 @@ function Home() {
           ) : (
             pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
           )}
-          {/*  */}
+          
         </li>
 
         <li className="pokemonlist">Weight : {pokemon.weight} hectograms</li>

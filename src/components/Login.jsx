@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 
+
 import "./Login.css";
 
 function Login() {
@@ -19,23 +20,23 @@ function Login() {
       <h1>Login</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
-          {...register("username")}
+          {...register("username", {required: true,
+          maxLength: 15})}
           type="text"
           name="username"
           id="username"
-          required
-          maxLength={15}
           placeholder="Username"
         />
+        {errors.username && <span>Please enter an username</span>}
         <input
-          {...register("password")}
+          {...register("password", {required: true,
+            maxLength: 6})}
           type="password"
           name="password"
           id="password"
-          required
-          minLength={6}
           placeholder="Password"
         />
+        {errors.password && <span>Please enter a password</span>}
         <input type="submit" />
       </form>
     </div>
