@@ -27,7 +27,7 @@ function Login() {
           id="username"
           placeholder="Username"
         />
-        {errors.username && <span>Please enter an username</span>}
+        {errors.username && <span>Please enter a valid username</span>}
         <input
           {...register("password", {required: true,
             maxLength: 6})}
@@ -36,7 +36,7 @@ function Login() {
           id="password"
           placeholder="Password"
         />
-        {errors.password && <span>Please enter a password</span>}
+        {errors.password && <span>Please enter a valid password</span>}
         <input type="submit" />
       </form>
     </div>
