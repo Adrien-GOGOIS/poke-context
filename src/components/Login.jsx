@@ -63,7 +63,7 @@ function Login() {
         {/* Message d'erreur si input invalide : */}
         {errors.password && <span>Please enter a valid password</span>}
 
-        {/* Render conditionnel du bouton selon connexion utilisateur ou pas : */}
+        {/* Render conditionnel du bouton selon connexion utilisateur grace au Context : */}
         {userState.isLogged ? 
         (<button onClick={onSubmit}>Logout</button>
         ) : (

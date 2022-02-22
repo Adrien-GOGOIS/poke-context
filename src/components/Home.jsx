@@ -3,6 +3,7 @@ import { useEffect, useState, useContext } from "react";
 
 // Import context d'App.js :
 import { UserContext } from "../App";
+import { PokemonContext } from "../App";
 
 // Components
 import "./Home.css";
@@ -10,6 +11,7 @@ import "./Home.css";
 
 function Home() {
   const userState = useContext(UserContext);
+  const pokemonsState = useContext(PokemonContext)
 
   // STATE
   const [pokemon, setPokemon] = useState({});
@@ -17,17 +19,24 @@ function Home() {
 
   // Component Did Mount + DidUpdate
   useEffect(() => {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${number}`)
+    if (pokemonsState.stockedPokemons.find(pokemon => pokemon.id === number) !== undefined) {
+      setPokemon(pokemonsState.stockedPokemons.find(pokemon => pokemon.id === number))
+    } else {
+      
+      fetch(`https://pokeapi.co/api/v2/pokemon/${number}`)
       .then((res) => res.json())
       .then((res) => {
         setPokemon(res);
-        console.log("TYPE", res.types[0].type.name);
+        pokemonsState.stockedPokemons.push(res);
+    console.log("TOTAL POKEMONS", pokemonsState.stockedPokemons)
       });
+    }
+   
   }, [number]);
 
   // Fonction choix ID Pokemon random
   const randomNumber = () => {
-    return setNumber(Math.floor(Math.random() * 100) + 1);
+    setNumber(Math.floor(Math.random() * 100) + 1);
   };
 
   // RENDER DE HOME

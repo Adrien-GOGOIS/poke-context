@@ -16,9 +16,15 @@ export const UserContext = createContext({
   isLogged: false,
 });
 
+// Context stockage historique pokemons :
+export const PokemonContext = createContext({
+  stockedPokemons: [],
+});
+
 function App() {
   // State de App.js :
   const [isLogged, setLogged] = useState(false);
+  const [stockedPokemons, setStockedPokemons] = useState([]);
 
   // Fonction changement du context connexion de l'utilisateur :
   const setAuth = () => {
@@ -33,6 +39,8 @@ function App() {
   const value = {
     isLogged: isLogged,
     setAuth: setAuth,
+    setStockedPokemons: setStockedPokemons,
+    stockedPokemons: stockedPokemons,
   };
 
   return (
