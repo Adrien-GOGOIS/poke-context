@@ -33,6 +33,7 @@ function Home() {
     <div>
       <h1>Home</h1>
      {userState.isLogged ? (
+       // UTILISATEUR CONNECTE :
        <>
        <button type="submit" onClick={randomNumber}>
         RANDOM
@@ -63,7 +64,9 @@ function Home() {
         )}
       </ul>
       </>
-     ) : (
+     ) : // UTILISATEUR DECONNECTE :
+     
+     (
        <p style={{color: "white"}}>Please login before...</p>
      )}
       

@@ -8,6 +8,7 @@ import "./Login.css";
 
 function Login() {
 
+  // Appel du context depuis App.js
   const userState = useContext(UserContext);
 
   // useHistory de react-router-dom
@@ -25,6 +26,7 @@ function Login() {
     console.log("Formulaire soumis", data)
     // Envoi l'utilisateur direct sur Home si formulaire valide :
     history.push('/');
+    // Changement du context isLogged via fonction setAuth crée dans App.js avec useContext :
     userState.setAuth();
     
   };
@@ -33,6 +35,7 @@ function Login() {
   return (
     <div>
       <h1>Login</h1>
+      {/* Fonction soumission formulaire : */}
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           {...register("username", {required: true,
@@ -42,6 +45,7 @@ function Login() {
           id="username"
           placeholder="Username"
         />
+        {/* Message d'erreur si input invalide : */}
         {errors.username && <span>Please enter a valid username</span>}
         <input
           {...register("password", {required: true,
@@ -51,8 +55,14 @@ function Login() {
           id="password"
           placeholder="Password"
         />
+        {/* Message d'erreur si input invalide : */}
         {errors.password && <span>Please enter a valid password</span>}
-        {userState.isLogged ? (<button onClick={onSubmit}>Logout</button>) : (<button type="submit">Login</button>)}
+
+        {/* Render conditionnel du bouton selon connexion utilisateur ou pas : */}
+        {userState.isLogged ? 
+        (<button onClick={onSubmit}>Logout</button>
+        ) : (
+        <button type="submit">Login</button>)}
         
       </form>
     </div>
