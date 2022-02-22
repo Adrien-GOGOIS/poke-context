@@ -1,9 +1,13 @@
 import { useForm } from "react-hook-form";
-
+import { useHistory } from "react-router-dom";
 
 import "./Login.css";
 
 function Login() {
+
+  // useHistory de react-router-dom
+  const history = useHistory();
+
   // Librairies react-hook-form
   const {
     register,
@@ -12,7 +16,11 @@ function Login() {
   } = useForm();
 
   // Fonction onSubmit bouton formulaire
-  const onSubmit = (data) => console.log("Formulaire soumis", data);
+  const onSubmit = (data) => {
+    console.log("Formulaire soumis", data)
+    // Envoi l'utilisateur direct sur Home si formulaire valide :
+    history.push('/');
+  };
 
   // RENDER LOGIN
   return (
