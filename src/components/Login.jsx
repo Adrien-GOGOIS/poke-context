@@ -1,9 +1,14 @@
-import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
+// Fonctions React :
 import { useContext } from "react";
 
+// Librairies
+import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
+
+// Context depuis App.js
 import { UserContext } from "../App";
 
+// Style :
 import "./Login.css";
 
 function Login() {

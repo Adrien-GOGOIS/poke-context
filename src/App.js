@@ -1,18 +1,26 @@
+// Style
 import "./App.css";
 
+// Import fonctions de state et de context React :
 import { createContext, useState } from "react";
 
+// React-router-dom
 import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
+
+// Components
 import Home from "./components/Home";
 import Login from "./components/Login";
 
+// Context connexion de l'utilisateur :
 export const UserContext = createContext({
   isLogged: false,
 });
 
 function App() {
+  // State de App.js :
   const [isLogged, setLogged] = useState(false);
 
+  // Fonction changement du context connexion de l'utilisateur :
   const setAuth = () => {
     if (isLogged === false) {
       setLogged(true);
@@ -21,6 +29,7 @@ function App() {
     }
   };
 
+  // On stock le context et la fonction de changement de context dans une constante :
   const value = {
     isLogged: isLogged,
     setAuth: setAuth,
@@ -28,6 +37,8 @@ function App() {
 
   return (
     <UserContext.Provider value={value}>
+      {" "}
+      {/* On passe la constante aux autres components */}
       <BrowserRouter>
         <nav style={{ color: "white" }}>
           <ul>

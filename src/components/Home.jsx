@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+// Fonctions React
+import { useEffect, useState, useContext } from "react";
 
-import { useContext } from "react";
-
+// Import context d'App.js :
 import { UserContext } from "../App";
 
+// Components
 import "./Home.css";
+
 
 function Home() {
   const userState = useContext(UserContext);
