@@ -47,7 +47,8 @@ input {
 }
 
 input[type="submit"]:hover {
-  background: rgb(21, 54, 138);
+  background: white;
+  color: black;
   transition: 1s all;
   transform: translateY(4px);
   border: 1px solid transparent;
@@ -74,5 +75,5 @@ button {
 }
 
 span {
-  color: rgb(223, 88, 88);
+  color: red;
 }
