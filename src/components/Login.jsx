@@ -1,9 +1,14 @@
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
+import { useContext } from "react";
+
+import { UserContext } from "../App";
 
 import "./Login.css";
 
 function Login() {
+
+  const userState = useContext(UserContext);
 
   // useHistory de react-router-dom
   const history = useHistory();
@@ -20,6 +25,8 @@ function Login() {
     console.log("Formulaire soumis", data)
     // Envoi l'utilisateur direct sur Home si formulaire valide :
     history.push('/');
+    userState.setAuth();
+    
   };
 
   // RENDER LOGIN
@@ -45,7 +52,8 @@ function Login() {
           placeholder="Password"
         />
         {errors.password && <span>Please enter a valid password</span>}
-        <input type="submit" />
+        {userState.isLogged ? (<button onClick={onSubmit}>Logout</button>) : (<button type="submit">Login</button>)}
+        
       </form>
     </div>
   );

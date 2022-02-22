@@ -13,7 +13,13 @@ export const UserContext = createContext({
 function App() {
   const [isLogged, setLogged] = useState(false);
 
-  const setAuth = () => setLogged(true);
+  const setAuth = () => {
+    if (isLogged === false) {
+      setLogged(true);
+    } else {
+      setLogged(false);
+    }
+  };
 
   const value = {
     isLogged: isLogged,
