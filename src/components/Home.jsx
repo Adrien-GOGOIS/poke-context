@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react";
 
+import { useContext } from "react";
+
+import { UserContext } from "../App";
+
 import "./Home.css";
 
 function Home() {
+  const userState = useContext(UserContext);
+
   // STATE
   const [pokemon, setPokemon] = useState({});
   const [number, setNumber] = useState(1);
@@ -26,7 +32,9 @@ function Home() {
   return (
     <div>
       <h1>Home</h1>
-      <button type="submit" onClick={randomNumber}>
+     {userState.isLogged ? (
+       <>
+       <button type="submit" onClick={randomNumber}>
         RANDOM
       </button>
 
@@ -54,6 +62,11 @@ function Home() {
             </>
         )}
       </ul>
+      </>
+     ) : (
+       <p style={{color: "white"}}>Please login before...</p>
+     )}
+      
     </div>
   );
 }
