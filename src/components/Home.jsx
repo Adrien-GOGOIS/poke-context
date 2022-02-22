@@ -30,32 +30,29 @@ function Home() {
         RANDOM
       </button>
 
-      <p>Chargement...</p>
-
       <ul className="pokemon">
-        <li className="pokemonlist name">
+       
           {/* J'ai du mettre un GUARD ici sinon erreur de chargement de la page en cas de rafraichissement*/}
           {pokemon.types === undefined ? (
-            <p>Chargement...</p>
+            <>
+            <h2>Loading...</h2>
+            </>
           ) : (
-            pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
-          )}
-          
-        </li>
+            // Affichage du pokémon random
+            <>
+            <li className="pokemonlist name">
+            {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+            </li>
 
-        <li className="pokemonlist">Weight : {pokemon.weight} hectograms</li>
-        <li className="pokemonlist">Height : {pokemon.height} decimeters</li>
-
-        {/* IDEM que plus haut */}
-        {pokemon.types === undefined ? (
-          <p>Chargement...</p>
-        ) : (
-          <li>
-            Type : {pokemon.types[0].type.name.charAt(0).toUpperCase() +
-              pokemon.types[0].type.name.slice(1)}
-          </li>
+            <li className="pokemonlist">Weight : {pokemon.weight} hectograms</li>
+            <li className="pokemonlist">Height : {pokemon.height} decimeters</li>
+        
+            <li>
+              Type : {pokemon.types[0].type.name.charAt(0).toUpperCase() +
+                pokemon.types[0].type.name.slice(1)}
+            </li>
+            </>
         )}
-        {/*  */}
       </ul>
     </div>
   );
