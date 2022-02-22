@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 
 // Context depuis App.js
 import { UserContext } from "../App";
+import { PokemonContext } from "../App";
 
 // Style :
 import "./Login.css";
@@ -15,6 +16,7 @@ function Login() {
 
   // Appel du context depuis App.js
   const userState = useContext(UserContext);
+  const pokemonsState = useContext(PokemonContext)
 
   // useHistory de react-router-dom
   const history = useHistory();
@@ -33,7 +35,8 @@ function Login() {
     history.push('/');
     // Changement du context isLogged via fonction setAuth crée dans App.js avec useContext :
     userState.setAuth();
-    
+    // Vide le tableau de stockage des pokémons
+   userState.cleanArray();
   };
 
   // RENDER LOGIN

@@ -19,16 +19,17 @@ function Home() {
 
   // Component Did Mount + DidUpdate
   useEffect(() => {
+    // On cherche le pokémon dans le stockage pour voir si on l'a pas déjà stocké, si oui, on l'appelle :
     if (pokemonsState.stockedPokemons.find(pokemon => pokemon.id === number) !== undefined) {
       setPokemon(pokemonsState.stockedPokemons.find(pokemon => pokemon.id === number))
     } else {
-      
+      // Si le pokémon n'est pas déjà stocké, on requête l'API
       fetch(`https://pokeapi.co/api/v2/pokemon/${number}`)
       .then((res) => res.json())
       .then((res) => {
         setPokemon(res);
         pokemonsState.stockedPokemons.push(res);
-    console.log("TOTAL POKEMONS", pokemonsState.stockedPokemons)
+    // console.log("TOTAL POKEMONS", pokemonsState.stockedPokemons)
       });
     }
    

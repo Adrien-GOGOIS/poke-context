@@ -35,11 +35,17 @@ function App() {
     }
   };
 
+  // Fonction pour nettoyer le stockage pokémon en cas de déconnexion de l'utilisateur
+  const cleanArray = () => {
+    console.log("FONCTION LANCE");
+    setStockedPokemons([]);
+  };
+
   // On stock le context et la fonction de changement de context dans une constante :
   const value = {
     isLogged: isLogged,
     setAuth: setAuth,
-    setStockedPokemons: setStockedPokemons,
+    cleanArray: cleanArray,
     stockedPokemons: stockedPokemons,
   };
 
