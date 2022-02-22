@@ -1,5 +1,5 @@
 // Fonctions React :
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 // Librairies
 import { useForm } from "react-hook-form";
@@ -36,8 +36,22 @@ function Login() {
     // Changement du context isLogged via fonction setAuth crée dans App.js avec useContext :
     userState.setAuth();
     // Vide le tableau de stockage des pokémons
-   userState.cleanArray();
+    userState.cleanArray();
+
+    // Si la checkbox est activée, on garde le username dans le local storage :
+    if (rememberMe === true) {
+      localStorage.setItem("username", data.username)
+    }
   };
+
+  // State remember pour rappel username et password utilisateur
+  const [rememberMe, setRememberMe] = useState(false);
+
+  // Fonction pour changement state remember :
+  const handleChange = (e)=>{
+  setRememberMe(e.target.checked)
+  }
+
 
   // RENDER LOGIN
   return (
@@ -52,6 +66,7 @@ function Login() {
           name="username"
           id="username"
           placeholder="Username"
+          value={localStorage.getItem("username")}
         />
         {/* Message d'erreur si input invalide : */}
         {errors.username && <span>Please enter a valid username</span>}
@@ -65,7 +80,11 @@ function Login() {
         />
         {/* Message d'erreur si input invalide : */}
         {errors.password && <span>Please enter a valid password</span>}
-
+        <div className="container">
+        <input {...register("checkbox")} type="checkbox" name="remember" value="remember" onChange={handleChange}/>
+        <label for="remember" style={{color: "white"}}>Remember me</label>
+        </div>
+        
         {/* Render conditionnel du bouton selon connexion utilisateur grace au Context : */}
         {userState.isLogged ? 
         (<button onClick={onSubmit}>Logout</button>

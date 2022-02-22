@@ -23,7 +23,8 @@ h1 {
   margin: 0 auto;
 }
 
-input {
+input[type="password"],
+input[type="text"] {
   display: block;
   box-sizing: border-box;
   width: 100%;
@@ -35,7 +36,8 @@ input {
 }
 
 button[type="submit"],
-input {
+input[type="password"],
+input[type="text"] {
   background: rgb(79, 98, 148);
   color: white;
   border: none;
@@ -76,4 +78,17 @@ button {
 
 span {
   color: red;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+input[type="checkbox"] {
+}
+
+label {
+  padding-left: 10px;
 }
