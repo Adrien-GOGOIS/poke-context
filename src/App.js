@@ -28,16 +28,11 @@ function App() {
 
   // Fonction changement du context connexion de l'utilisateur :
   const setAuth = () => {
-    if (isLogged === false) {
-      setLogged(true);
-    } else {
-      setLogged(false);
-    }
+    setLogged((prevLogged) => !prevLogged);
   };
 
   // Fonction pour nettoyer le stockage pokémon en cas de déconnexion de l'utilisateur
   const cleanArray = () => {
-    console.log("FONCTION LANCE");
     setStockedPokemons([]);
   };
 
